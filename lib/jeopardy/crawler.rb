@@ -1,5 +1,5 @@
 class Crawler
-  attr_accessor :resp 
+  attr_accessor :resp, :clues 
   
   def initialize(page = 0)
     url = "http://jeopardy-questions.tumblr.com"
@@ -8,9 +8,10 @@ class Crawler
     end
 
     response = open(url)
+    @clues = []
     @resp = Nokogiri::HTML(response)
-    @resp.css("div.data.lP").map! do |node|
-      Clue.new image: node.css("img").first.src, answer: node.css("p").first.to_s
+    @resp.css("div.data.lP").each do |node|
+      @clues << Clue.new image: node.css("img").first.src, answer: node.css("p").first.to_s
     end
   end
 end
