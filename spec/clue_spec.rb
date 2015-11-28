@@ -8,6 +8,6 @@ describe Clue do
   end
   
   it 'has a clue id' do
-    expect(Clue.new(resp)).to eq 138511
+    expect(Clue.new(resp).clue_id).to eq 138511
   end
 end
