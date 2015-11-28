@@ -1,39 +1,6 @@
-# Jeopardy 
+# JAPI
 
-# RENAME AND FIX THESE TO BE jApi
-bin/console
-4:require "jeopardy"
-
-Gemfile
-3:# Specify your gem's dependencies in jeopardy.gemspec
-
-jeopardy.gemspec
-4:require 'jeopardy/version'
-7:  spec.name          = "jeopardy"
-8:  spec.version       = Jeopardy::VERSION
-
-lib/jeopardy/version.rb
-1:module Jeopardy
-
-lib/jeopardy.rb
-1:require "jeopardy/version"
-2:require "jeopardy/trebek"
-3:require "jeopardy/clue"
-6:module Jeopardy
-
-README.md
-1:# Jeopardy
-7:Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/jeopardy`. To experiment with that code, run `bin/console` for an interactive prompt.
-16:gem 'jeopardy'
-25:    $ gem install jeopardy
-39:Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/jeopardy. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
-
-spec/jeopardy_spec.rb
-3:describe Jeopardy do
-5:    expect(Jeopardy::VERSION).not_to be nil
-
-spec/spec_helper.rb
-2:require 'jeopardy'
+A simple ruby interface for the jservice.io API
 
 ## Installation
 
@@ -49,12 +16,23 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install japi 
+    $ gem install japi
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+clue = JAPI::Trebek.random # ask trebek for a random question!
+puts clue.category.title # THE SOLAR SYSTEM
+puts clue.question # Only 1 of 9 planets not named for a Greek or Roman mythological figure
 
+answer = gets.chomp
+if answer == clue.answer
+  puts "The Earth! Correct!"
+  puts "Good answer! Thats worth #{clue.value} dollars!"
+else
+  puts "Too bad!"
+end
+```
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
