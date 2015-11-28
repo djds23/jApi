@@ -1,7 +1,11 @@
 require 'spec_helper'
 
-describe Jeopardy do
+describe JAPI do
   it 'has a version number' do
-    expect(Jeopardy::VERSION).not_to be nil
+    expect(JAPI::VERSION).not_to be nil
+  end
+
+  it 'has a Trebek' do
+    expect(JAPI::Trebek).not_to be nil
   end
 end
