@@ -18,7 +18,8 @@ class Clue
   
   def game_id
     @options["game_id"]
-  
+  end
+
   def question
     @options["question"] 
   end
