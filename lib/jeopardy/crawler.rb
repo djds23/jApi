@@ -6,6 +6,6 @@ class Crawler
     end
     
     response = open(url)
-    Nokogiri::HTML(response)
+    @resp = Nokogiri::HTML(response)
   end
 end
