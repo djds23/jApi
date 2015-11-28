@@ -13,7 +13,7 @@ class Crawler
     @resp.css("div.data.lP").each do |node|
       @clues.push(
         Clue.new(
-          image: node.css("img").first.src, 
+          image: node.css("img").first.to_h[:src], 
           answer: node.css("p").first.to_s
         )
       )
