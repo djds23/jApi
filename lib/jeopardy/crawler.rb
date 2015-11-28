@@ -11,7 +11,12 @@ class Crawler
     @clues = []
     @resp = Nokogiri::HTML(response)
     @resp.css("div.data.lP").each do |node|
-      @clues << Clue.new image: node.css("img").first.src, answer: node.css("p").first.to_s
+      @clues.push(
+        Clue.new(
+          image: node.css("img").first.src, 
+          answer: node.css("p").first.to_s
+        )
+      )
     end
   end
 end
