@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{A simple object wrapper for the jservice.io API.}
   spec.description   = %q{A simple object wrapper for the jservice.io API.}
-  spec.homepage      = "btrebek.com"
+  spec.homepage      = "http://btrebek.com/"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
