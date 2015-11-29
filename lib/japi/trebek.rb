@@ -42,6 +42,40 @@ module JAPI
         end
       end
 
+      # Get a list of categories from the service
+      #
+      # @param options [Hash{String, Symbol => Fixnum}] hash of query params for clue endpoint
+      # @option options [Fixnum] :count amount of categories to return, limited to 100 at a time
+      # @option options [Fixnum] :offset offsets the starting id of categories returned. Useful in pagination.
+      #
+      # @return [Array<Category>] A list of clues that fit the query params
+      def categories(options = {})
+        allowed_keys = ['count', 'offset']
+        options.keys.each do |key|
+          unless allowed_keys.include?(key.to_s)
+            message = "#{key} is not allowed, please only use the following options: #{allowed_keys.join(', ')}"
+            raise InvalidParamError.new(message)
+          end
+        end
+        query = URI.encode_www_form(options)
+        response = JSON.parse(open(base_url << 'categories/?' << query).read)
+
+        response.map do |category|
+          Category.new(category)
+        end
+      end
+
+      # Get clues of a single category from the service
+      #
+      # @param id [Fixnum] id of desired category
+      #
+      # @return [Category] A list of clues that fit the query params
+      def category(id)
+        query = URI.encode_www_form(id: id)
+        response = JSON.parse(open(base_url << 'category/?' << query).read)
+        Category.new(response)
+      end
+
       private
       def base_url
         "http://jservice.io/api/"
