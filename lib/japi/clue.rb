@@ -17,6 +17,10 @@ module JAPI
       @options["category_id"]
     end
 
+    def category
+      Category.new(@options["category"])
+    end
+
     def game_id
       @options["game_id"]
     end
