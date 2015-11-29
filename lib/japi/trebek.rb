@@ -1,8 +1,10 @@
+require 'json'
+
 module JAPI
   class Trebek
     class << self
       def random
-        response = JSON.parse(open(base_url + "random")).first
+        response = JSON.parse(open(base_url + "random").read).first
         Clue.new(response)
       end
 

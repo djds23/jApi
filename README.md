@@ -1,5 +1,7 @@
 # JAPI
 
+![build status](https://travis-ci.org/djds23/jApi.svg?branch=master)
+
 A simple ruby interface for the jservice.io API
 
 ## Installation
