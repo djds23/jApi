@@ -22,7 +22,7 @@ module JAPI
 
     def clues
       return @options["clues"] unless @options["clues"].nil?
-      @options["clues"] = Trebek.category(10044).clues
+      @options["clues"] = Trebek.category(category_id).clues
     end
   end
 end
