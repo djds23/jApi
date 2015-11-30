@@ -80,6 +80,9 @@ module JAPI
       end
 
       private
+
+      # @private
+      # @return [String] base url for jservice.io endpoint
       def base_url
         "http://jservice.io/api/"
       end
