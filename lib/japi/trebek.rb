@@ -1,4 +1,7 @@
 module JAPI
+
+  # @author Dean Silfen
+  # @abstract Interface for creating and requesting Clues & Categories
   class Trebek
     class << self
 
