@@ -1,8 +1,9 @@
 module JAPI
 
+  # Clue object with a question, answer and other details.
+  #
   # @author Dean Silfen
-  # @abstract Clue object with a question, answer and other details.
-  class Clue
+    class Clue
 
     # @param options [Hash{String, Symbol => Fixnum, String, DateTime, Hash}]
     # @option options [Fixnum] :value amount in dollars of question

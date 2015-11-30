@@ -1,8 +1,8 @@
 module JAPI
-
+  # Interface for creating and requesting Clues & Categories
+  #
   # @author Dean Silfen
-  # @abstract Interface for creating and requesting Clues & Categories
-  class Trebek
+    class Trebek
     class << self
 
       # Get a random clue from the service

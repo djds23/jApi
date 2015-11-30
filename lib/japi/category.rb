@@ -1,8 +1,8 @@
 module JAPI
-
+  # Category object with associated clues and a title.
+  #
   # @author Dean Silfen
-  # @abstract Category object with associated clues and a title.
-  class Category
+    class Category
     # @param options [Hash{String, Symbol => Fixnum, String}]
     # @option options [Fixnum] :clues_count amount of clues associated with this category
     # @option options [Fixnum] :id category id
