@@ -23,7 +23,7 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-clue = JAPI::Trebek.random # ask trebek for a random question!
+clue = JAPI::Trebek.random.first # ask trebek for a random question!
 puts clue.category.title # THE SOLAR SYSTEM
 puts clue.question # Only 1 of 9 planets not named for a Greek or Roman mythological figure
 
