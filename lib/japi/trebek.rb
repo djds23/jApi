@@ -29,7 +29,7 @@ module JAPI
       # @option options [Fixnum] :offset offsets the returned clues. Useful in pagination
       #
       # @return [Array<Clue>] A list of clues that fit the query params
-      # @raise [InvalidParamError] param not accepted by API is passed
+      # @raise [InvalidParamError] if param not accepted by API is passed
       def clues(options = {})
         allowed_keys = ['value', 'category', 'max_date', 'min_date', 'offset']
         options.keys.each do |key|
@@ -53,7 +53,7 @@ module JAPI
       # @option options [Fixnum] :offset offsets the starting id of categories returned. Useful in pagination.
       #
       # @return [Array<Category>] A list of clues that fit the query params
-      # @raise [InvalidParamError] param not accepted by API is passed
+      # @raise [InvalidParamError] if param not accepted by API is passed
       def categories(options = {})
         allowed_keys = ['count', 'offset']
         options.keys.each do |key|
