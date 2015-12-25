@@ -1,7 +1,7 @@
 # JAPI
 
-[![build status](https://travis-ci.org/djds23/jApi.svg?branch=master)]
-[![Gem Version](https://badge.fury.io/rb/japi.svg)]
+![build status](https://travis-ci.org/djds23/jApi.svg?branch=master)
+![Gem Version](https://badge.fury.io/rb/japi.svg)
 
 A simple ruby interface for the jservice.io API
 
