@@ -11,7 +11,7 @@ module JAPI
       #
       # @return [Array<Clue>] A list of random clues
       def random(count = 1)
-        url = base_url << "random/?" << URI.encode_www_form({count: count})
+        url = base_url + "random/?" + URI.encode_www_form({count: count})
         response = JSON.parse(open(url).read)
 
         response.map do |clue|
@@ -39,7 +39,7 @@ module JAPI
           end
         end
         query = URI.encode_www_form(options)
-        response = JSON.parse(open(base_url << 'clues/?' << query).read)
+        response = JSON.parse(open(base_url + 'clues/?' + query).read)
 
         response.map do |clue|
           Clue.new(clue)
@@ -63,7 +63,7 @@ module JAPI
           end
         end
         query = URI.encode_www_form(options)
-        response = JSON.parse(open(base_url << 'categories/?' << query).read)
+        response = JSON.parse(open(base_url + 'categories/?' + query).read)
 
         response.map do |category|
           Category.new(category)
@@ -77,16 +77,17 @@ module JAPI
       # @return [Category] A list of clues that fit the query params
       def category(id)
         query = URI.encode_www_form(id: id)
-        response = JSON.parse(open(base_url << 'category/?' << query).read)
+        response = JSON.parse(open(base_url + 'category/?' + query).read)
         Category.new(response)
       end
 
       private
 
       # @private
-      # @return [String] base url for jservice.io endpoint
+      # @return [String] base url for jservice.io endpoint, configurable with
+      #   JAPI.configuration block method.
       def base_url
-        "http://jservice.io/api/"
+        JAPI.configuration.jservice_url
       end
     end
   end

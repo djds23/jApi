@@ -69,5 +69,17 @@ describe JAPI::Trebek do
       expect(described_class.category(8056).category_id).to eq 8056
     end
   end
+
+  describe '#base_url' do
+    it 'changes with configuration' do
+      expect(described_class.send(:base_url)).to eq("http://jservice.io/api/")
+
+      JAPI.configure do |config|
+        config.jservice_url = "http://jeopardean.com/api/"
+      end
+
+      expect(described_class.send(:base_url)).to eq("http://jeopardean.com/api/")
+    end
+  end
 end
 
