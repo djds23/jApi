@@ -80,6 +80,15 @@ describe JAPI::Trebek do
 
       expect(described_class.send(:base_url)).to eq("http://jeopardean.com/api/")
     end
+
+    it 'does not allow invalid URLs to be set for jservice_url' do
+      expect {
+        JAPI.configure do |config|
+          config.jservice_url = "Not in any way a url"
+        end
+      }.to raise_error(JAPI::InvalidURLError)
+    end
+
   end
 end
 
