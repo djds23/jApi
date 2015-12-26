@@ -2,6 +2,7 @@
 
 ![build status](https://travis-ci.org/djds23/jApi.svg?branch=master)
 ![Gem Version](https://badge.fury.io/rb/japi.svg)
+[![codecov.io](https://codecov.io/github/djds23/jApi/coverage.svg?branch=master)](https://codecov.io/github/djds23/jApi?branch=master)
 
 A simple ruby interface for the jservice.io API
 
