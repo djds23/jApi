@@ -12,3 +12,11 @@ end
 def categories_resp
   '[{"id":10044,"title":"classic lit","clues_count":10},{"id":11507,"title":"bay o wolf","clues_count":5},{"id":11508,"title":"gullible travels","clues_count":5}]'
 end
+
+# codecov.io
+require 'simplecov'
+SimpleCov.start
+if ENV['CI']=='true'
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
