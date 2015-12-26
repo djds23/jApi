@@ -11,6 +11,7 @@ describe JAPI::Clue do
   it 'responds to expected methods' do
     clue = described_class.new(resp)
     expect(clue.value).to eq 200
+    expect(clue.game_id).to be_nil
     expect(clue.clue_id).to eq 107165
     expect(clue.answer).to eq "a bishop"
     expect(clue.question).to eq "...of chess pieces"
@@ -24,3 +25,4 @@ describe JAPI::Clue do
     expect(clue.category_id).to eq clue.category.category_id
   end
 end
+
