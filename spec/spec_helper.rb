@@ -1,6 +1,12 @@
 # codecov.io
 require 'simplecov'
-SimpleCov.start
+
+if ENV['CI']=='true'
+  SimpleCov.start do
+    add_filter '/spec/'
+  end
+end
+
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'japi'
 
