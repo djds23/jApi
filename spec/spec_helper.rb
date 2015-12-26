@@ -1,5 +1,13 @@
+# codecov.io
+require 'simplecov'
+SimpleCov.start
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'japi'
+
+if ENV['CI']=='true'
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
 
 def clue_resp
   '[{"id":107165,"answer":"a bishop","question":"...of chess pieces","value":200,"airdate":"2010-11-03T12:00:00.000Z","created_at":"2014-02-14T02:13:56.847Z","updated_at":"2014-02-14T02:13:56.847Z","category_id":300,"game_id":null,"invalid_count":null,"category":{"id":300,"title":"alphabetically first","created_at":"2014-02-11T22:48:12.011Z","updated_at":"2014-02-11T22:48:12.011Z","clues_count":20}}]'
@@ -13,10 +21,3 @@ def categories_resp
   '[{"id":10044,"title":"classic lit","clues_count":10},{"id":11507,"title":"bay o wolf","clues_count":5},{"id":11508,"title":"gullible travels","clues_count":5}]'
 end
 
-# codecov.io
-require 'simplecov'
-SimpleCov.start
-if ENV['CI']=='true'
-  require 'codecov'
-  SimpleCov.formatter = SimpleCov::Formatter::Codecov
-end
