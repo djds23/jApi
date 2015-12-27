@@ -17,8 +17,19 @@ module JAPI
   # @author Dean Silfen
   class InvalidParamError < StandardError; end
 
+  # Exception for attempting to pass invalid url to the JAPI configuration
+  #
+  # @author Dean Silfen
+  class InvalidURLError < StandardError; end
+
+
   include Configurations
-  configurable String, :jservice_url
+  configurable String, :jservice_url do |value|
+    unless value =~ /\A#{URI::regexp(['http', 'https'])}\z/
+      raise InvalidURLError, "jservice_url must be a valid URL, #{value} does not appear valid to URI::regexp"
+    end
+  end
+
   configuration_defaults do |config|
     config.jservice_url = "http://jservice.io/api/"
   end
