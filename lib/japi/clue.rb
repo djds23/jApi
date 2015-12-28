@@ -13,6 +13,7 @@ module JAPI
     # @option options [Hash] :category Hash containing Category info. see {JAPI::Category}
     # @option options [String] :question the question text
     # @option options [String] :answer the answer text
+    # @option options [String] :airdate the airdate of the clue
     def initialize(options = {})
       @options = options
     end
@@ -50,6 +51,11 @@ module JAPI
     # @return [String] answer text for this clue
     def answer
       @options["answer"]
+    end
+
+    # @return [Time] Time for the airdate of this clue
+    def airdate
+      Time.parse(@options["airdate"])
     end
   end
 end
