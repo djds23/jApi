@@ -1,8 +1,10 @@
 # JAPI
 
-![build status](https://travis-ci.org/djds23/jApi.svg?branch=master)
-![Gem Version](https://badge.fury.io/rb/japi.svg)
+[![build status](https://travis-ci.org/djds23/jApi.svg?branch=master)](https://travis-ci.org/djds23/github-notif-helper)
+[![Gem Version](https://badge.fury.io/rb/japi.svg)](https://rubygems.org/gems/japi)
+[![YARD docs](https://img.shields.io/badge/yard-docs-blue.svg)](http://www.rubydoc.info/github/djds23/jApi)
 [![codecov.io](https://codecov.io/github/djds23/jApi/coverage.svg?branch=master)](https://codecov.io/github/djds23/jApi?branch=master)
+[![inch.io](https://inch-ci.org/github/djds23/jApi.svg?branch=master)](https://inch-ci.org/github/djds23/jApi)
 
 A simple ruby interface for the jservice.io API
 
