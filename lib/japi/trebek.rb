@@ -1,3 +1,5 @@
+require 'open-uri'
+
 module JAPI
   # Interface for creating and requesting Clues & Categories
   #
@@ -12,8 +14,7 @@ module JAPI
       # @return [Array<Clue>] A list of random clues
       def random(count = 1)
         url = base_url + "random/?" + URI.encode_www_form({count: count})
-        response = JSON.parse(open(url).read)
-
+        response = JSON.parse(URI.open(url).read)
         response.map do |clue|
           Clue.new(clue)
         end
@@ -39,7 +40,7 @@ module JAPI
           end
         end
         query = URI.encode_www_form(options)
-        response = JSON.parse(open(base_url + 'clues/?' + query).read)
+        response = JSON.parse(URI.open(base_url + 'clues/?' + query).read)
 
         response.map do |clue|
           Clue.new(clue)
@@ -63,7 +64,7 @@ module JAPI
           end
         end
         query = URI.encode_www_form(options)
-        response = JSON.parse(open(base_url + 'categories/?' + query).read)
+        response = JSON.parse(URI.open(base_url + 'categories/?' + query).read)
 
         response.map do |category|
           Category.new(category)
@@ -77,7 +78,7 @@ module JAPI
       # @return [Category] A list of clues that fit the query params
       def category(id)
         query = URI.encode_www_form(id: id)
-        response = JSON.parse(open(base_url + 'category/?' + query).read)
+        response = JSON.parse(URI.open(base_url + 'category/?' + query).read)
         Category.new(response)
       end
 
